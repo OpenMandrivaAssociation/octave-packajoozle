@@ -1,23 +1,26 @@
-%define octpkg packajoozle
+%global octpkg packajoozle
 
 # there are not official releases yet.
 %global commit	d7cec7de54fe529bfd6adb2e584d6505e7e1ce4f
 
-Summary:	A just-for-fun reworking of GNU Octave's `pkg` tool
-Name:		octave-%{octpkg}
+Summary:	Enhanced package manager for GNU Octave
+Name:		octave-packajoozle
 Version:	0.0.0~20200918git
-Release:	1
-Url:		https://github.com/apjanke/octave-%{octpkg}
-Source0:	%{url}/archive/%{commit}/%{name}-%{commit}.tar.gz
+Release:	2
 License:	GPLv3+
 Group:		Sciences/Mathematics
-BuildArch:	noarch
-BuildRequires:	octave-devel >= 4.4.1
+#Url:		https://packages.octave.org/packajoozle/
+Url:		https://github.com/apjanke/octave-packajoozle/
+Source0:	https://github.com/apjanke/octave-packajoozle/archive/%{commit}/%{name}-%{commit}.tar.gz
+
+BuildRequires:  octave-devel >= 4.4.1
 
 Requires:	octave(api) = %{octave_api}
 
 Requires(post): octave
 Requires(postun): octave
+
+BuildArch:	noarch
 
 %description
 Packajoozle is a re-working of Octave’s pkg package management tool to use OOP.
@@ -39,9 +42,6 @@ it’s almost a real, usable package.
 
 # fix version inside DESCRIPTION
 sed -i -e "s|Version: 0.0.0+|Version: %{version}|" DESCRIPTION
-
-# remove backup files
-#find . -name \*~ -delete
 
 %build
 %octave_pkg_build

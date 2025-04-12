@@ -5,8 +5,8 @@
 
 Summary:	Enhanced package manager for GNU Octave
 Name:		octave-packajoozle
-Version:	dev
-Release:	2
+Version:	0.0.0~20200918git
+Release:	3
 License:	GPLv3+
 Group:		Sciences/Mathematics
 #Url:		https://packages.octave.org/packajoozle/

@@ -41,7 +41,7 @@ it’s almost a real, usable package.
 %autosetup -p1 -n %{name}-%{commit}
 
 # fix version inside DESCRIPTION
-sed -i -e "s|Version: dev
+sed -i -e "s|Version: 0.0.0+|Version: %{version}|" DESCRIPTION
 
 %build
 %octave_pkg_build
